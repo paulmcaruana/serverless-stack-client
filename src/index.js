@@ -1,15 +1,15 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Amplify } from 'aws-amplify';
+import { BrowserRouter as Router } from 'react-router-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
-import {BrowserRouter as Router } from 'react-router-dom';
-import { Amplify } from 'aws-amplify';
 import config from './config';
+import reportWebVitals from './reportWebVitals';
 
 Amplify.configure({
   Auth: {
-    manditorySignIn: true,
+    mandatorySignIn: true,
     region: config.cognito.REGION,
     userPoolId: config.cognito.USER_POOL_ID,
     identityPoolId: config.cognito.IDENTITY_POOL_ID,
@@ -23,7 +23,7 @@ Amplify.configure({
   API: {
     endpoints: [
       {
-        name: 'notes',
+        name: "notes",
         endpoint: config.apiGateway.URL,
         region: config.apiGateway.REGION
       },
